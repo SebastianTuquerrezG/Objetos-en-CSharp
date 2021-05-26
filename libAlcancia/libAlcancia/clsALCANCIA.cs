@@ -120,7 +120,7 @@ namespace Alcancia
             atrCapacidadMonedas = 50;
             atrDenominacionesAceptadasMonedas = new List<int>() { 50, 100, 200, 500, 1000 };
             atrSaldoPorDenominacionMonedas = new List<int>() { 300, 0, 400, 500, 3000 };
-            atrConteoPorDenominacionMonedas = new List<int>() { 6, 0, 1, 2, 3 };
+            atrConteoPorDenominacionMonedas = new List<int>() { 6, 0, 2, 1, 3 };
             
             atrCapacidadBilletes = 20;
             atrDenominacionesAceptadasBilletes = new List<int>() { 1000, 2000, 5000, 10000, 20000, 50000 };
