@@ -29,6 +29,7 @@ namespace Alcancia
 
         #region Operaciones
         #region Accesores
+        #region Accesores Atributos Propios
         public string darNombre()
         {
             return atrNombre;
@@ -49,6 +50,8 @@ namespace Alcancia
         {
             return atrDenominacionesAceptadasBilletes;
         }
+        #endregion
+        #region Accesores Atributos Derivables
         public List<int> darSaldoPorDenominacionMonedas()
         {
             return atrSaldoPorDenominacionMonedas;
@@ -77,6 +80,7 @@ namespace Alcancia
         {
             return atrSaldoTotal;
         }
+        #endregion
         #endregion
         #region Mutadores
         public void ponerNombre(string prmValor)
@@ -109,6 +113,19 @@ namespace Alcancia
             atrDenominacionesAceptadasMonedas = prmDenominacionesAceptadasMonedas;
             atrCapacidadBilletes = prmCapacidadBilletes;
             atrDenominacionesAceptadasBilletes = prmDenominacionesAceptadasBilletes;
+        }
+        public void Generar()
+        {
+            atrNombre = "Marranito";
+            atrCapacidadMonedas = 50;
+            atrDenominacionesAceptadasMonedas = new List<int>() { 50, 100, 200, 500, 1000 };
+            atrSaldoPorDenominacionMonedas = new List<int>() { 300, 0, 400, 500, 3000 };
+            atrConteoPorDenominacionMonedas = new List<int>() { 6, 0, 1, 2, 3 };
+            
+            atrCapacidadBilletes = 20;
+            atrDenominacionesAceptadasBilletes = new List<int>() { 1000, 2000, 5000, 10000, 20000, 50000 };
+            atrSaldoPorDenominacionBilletes = new List<int>() { 5000, 4000, 0, 30000, 0, 0 };
+            atrConteoPorDenominacionBilletes = new List<int>() { 5, 2, 0, 3, 0, 0 };
         }
         #endregion
         #endregion
