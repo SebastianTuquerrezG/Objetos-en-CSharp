@@ -1,0 +1,5 @@
+C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\libAlcancia\bin\Debug\libAlcancia.dll
+C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\libAlcancia\bin\Debug\libAlcancia.pdb
+C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\libAlcancia\obj\Debug\libAlcancia.csprojResolveAssemblyReference.cache
+C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\libAlcancia\obj\Debug\libAlcancia.dll
+C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\libAlcancia\obj\Debug\libAlcancia.pdb

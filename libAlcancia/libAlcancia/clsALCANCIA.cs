@@ -101,9 +101,7 @@ namespace Alcancia
         }
         #endregion
         #region Constructores
-        public clsALCANCIA()
-        {
-        }
+        public clsALCANCIA(){ }
         public clsALCANCIA(string prmNombre, int prmCapacidadMonedas, List<int> prmDenominacionesAceptadasMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasBilletes)
         {
             atrNombre = prmNombre;
