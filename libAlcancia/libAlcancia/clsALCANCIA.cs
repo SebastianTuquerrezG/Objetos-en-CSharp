@@ -10,7 +10,7 @@ namespace Alcancia
     {
         #region Atributos
         #region Atributos Propios
-        private string atrNombre = "Ninguno";
+        private string atrNombre = "ninguno";
         private int atrCapacidadMonedas = 0;
         private List<int> atrDenominacionesAceptadasMonedas = null;
         private int atrCapacidadBilletes = 0;
@@ -106,7 +106,7 @@ namespace Alcancia
         #endregion
         #region Constructores
         public clsALCANCIA(){ }
-        public clsALCANCIA(string prmNombre, int prmCapacidadMonedas, List<int> prmDenominacionesAceptadasMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasBilletes)
+        public clsALCANCIA(string prmNombre, int prmCapacidadMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasMonedas, List<int> prmDenominacionesAceptadasBilletes)
         {
             atrNombre = prmNombre;
             atrCapacidadMonedas = prmCapacidadMonedas;

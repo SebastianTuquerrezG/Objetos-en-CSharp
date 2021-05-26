@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Alcancia;
 
@@ -12,6 +12,7 @@ namespace uTestAlcancia
         #endregion
 
         #region Metodos de Prueba
+        #region Test de Accesores
         [TestMethod]
         public void uTestDarNombre()
         {
@@ -171,6 +172,51 @@ namespace uTestAlcancia
             Assert.AreEqual(43200, atrObjTestAlcancia.darSaldoTotal());
             #endregion
         }
+        #endregion
+        #region  Test de Constructores
+        [TestMethod]
+        public void uTestConstructorNoParametrizado()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual("ninguno", atrObjTestAlcancia.darNombre());
+
+            Assert.AreEqual(0, atrObjTestAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(null, atrObjTestAlcancia.darDenominacionesAceptadasMonedas());
+            Assert.AreEqual(null, atrObjTestAlcancia.darSaldoPorDenominacionMonedas());
+            Assert.AreEqual(null, atrObjTestAlcancia.darConteoPorDenominacionMonedas());
+            Assert.AreEqual(0, atrObjTestAlcancia.darSaldoTotalMonedas());
+
+            Assert.AreEqual(0, atrObjTestAlcancia.darCapacidadBilletes());
+            Assert.AreEqual(null, atrObjTestAlcancia.darDenominacionesAceptadasBilletes());
+            Assert.AreEqual(null, atrObjTestAlcancia.darSaldoPorDenominacionBilletes());
+            Assert.AreEqual(null, atrObjTestAlcancia.darConteoPorDenominacionBilletes());
+            Assert.AreEqual(0, atrObjTestAlcancia.darSaldoTotalBilletes());
+
+            Assert.AreEqual(0, atrObjTestAlcancia.darSaldoTotal());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestConstructorParametrizado()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA("Ahorros", 10, 5, new List<int> { 100, 500 }, new List<int> { 5000, 10000 });
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual("Ahorros", atrObjTestAlcancia.darNombre());
+
+            Assert.AreEqual(10, atrObjTestAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(100, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[0]);
+            Assert.AreEqual(500, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
+
+            Assert.AreEqual(5, atrObjTestAlcancia.darCapacidadBilletes());
+            Assert.AreEqual(5000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
+            Assert.AreEqual(10000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
+            #endregion
+        }
+        #endregion
         #endregion
     }
 }
