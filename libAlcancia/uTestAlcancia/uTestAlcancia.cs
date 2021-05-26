@@ -173,6 +173,87 @@ namespace uTestAlcancia
             #endregion
         }
         #endregion
+        #region Test Mutadores
+        [TestMethod]
+        public void uTestPonerNombre()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerNombre("Ahorros");
+            Assert.AreEqual("Ahorros", atrObjTestAlcancia.darNombre()); 
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerCapacidadMonedasMayor()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerCapacidadMonedas(10);
+            Assert.AreEqual(10, atrObjTestAlcancia.darCapacidadMonedas());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerCapacidadMonedasMenor()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerCapacidadMonedas(-1);
+            Assert.AreEqual(0, atrObjTestAlcancia.darCapacidadMonedas());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerCapacidadBilletesMayor()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerCapacidadBilletes(10);
+            Assert.AreEqual(10, atrObjTestAlcancia.darCapacidadBilletes());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerCapacidadBilletesMenor()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerCapacidadBilletes(-1);
+            Assert.AreEqual(0, atrObjTestAlcancia.darCapacidadBilletes());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerDenominacionesAceptadasMonedas()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerDenominacionesAceptadasMonedas(new List<int> { 100, 200});
+            Assert.AreEqual(100, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[0]);
+            Assert.AreEqual(200, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
+            #endregion
+        }
+        [TestMethod]
+        public void UtestPonerDenominacionesAceptadasBilletes()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            #endregion
+            #region Probar y Comprobar
+            atrObjTestAlcancia.ponerDenominacionesAceptadasBilletes(new List<int> { 1000, 2000});
+            Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
+            Assert.AreEqual(2000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
+            #endregion
+        }
+        #endregion
         #region  Test de Constructores
         [TestMethod]
         public void uTestConstructorNoParametrizado()

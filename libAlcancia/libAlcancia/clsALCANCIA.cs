@@ -89,11 +89,13 @@ namespace Alcancia
         }
         public void ponerCapacidadMonedas(int prmValor)
         {
-            atrCapacidadMonedas = prmValor;
+            if (prmValor > atrCapacidadMonedas)
+                atrCapacidadMonedas = prmValor;
         }
         public void ponerCapacidadBilletes(int prmValor)
         {
-            atrCapacidadBilletes = prmValor;
+            if (prmValor > atrCapacidadBilletes)
+                atrCapacidadBilletes = prmValor;
         }
         public void ponerDenominacionesAceptadasMonedas(List<int> prmLista)
         {
