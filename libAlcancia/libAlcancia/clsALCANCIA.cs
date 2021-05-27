@@ -4,7 +4,7 @@ using System;
 // Author:  JOAN SEBASTIAN TUQUERREZ GOMEZ
 // Created: martes, 25 de mayo de 2021 4:57:43 p. m.
 // Purpose: Definition of Class clsALCANCIA
-namespace Alcancia
+namespace Alcancia.Dominio
 {
     public class clsALCANCIA
     {
