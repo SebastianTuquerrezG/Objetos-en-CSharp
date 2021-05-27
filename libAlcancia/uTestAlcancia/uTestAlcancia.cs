@@ -230,27 +230,89 @@ namespace uTestAlcancia
             #endregion
         }
         [TestMethod]
-        public void uTestPonerDenominacionesAceptadasMonedas()
+        public void uTestPonerDenominacionesAceptadasMonedas_Caso1()
         {
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
             #endregion
             #region Probar y Comprobar
-            atrObjTestAlcancia.ponerDenominacionesAceptadasMonedas(new List<int> { 100, 200});
+            Assert.AreEqual(true, atrObjTestAlcancia.ponerDenominacionesAceptadasMonedas(new List<int> { 100, 200}));
             Assert.AreEqual(100, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[0]);
             Assert.AreEqual(200, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
             #endregion
         }
         [TestMethod]
-        public void UtestPonerDenominacionesAceptadasBilletes()
+        public void uTestPonerDenominacionesAceptadasMonedas_Caso2()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(false, atrObjTestAlcancia.ponerDenominacionesAceptadasMonedas(new List<int> { 100, 200 }));
+            Assert.AreEqual(50, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[0]);
+            Assert.AreEqual(100, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
+            Assert.AreEqual(200, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[2]);
+            Assert.AreEqual(500, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[3]);
+            Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[4]);
+            #endregion
+        }
+        [TestMethod]
+        public void uTestPonerDenominacionesAceptadasMonedas_Caso3()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.ponerDenominacionesAceptadasMonedas(new List<int> { 50, 200, 500, 1000 }));
+            Assert.AreEqual(50, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[0]); 
+            Assert.AreEqual(200, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
+            Assert.AreEqual(500, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[2]);
+            Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[3]);
+            #endregion
+        }
+        [TestMethod]
+        public void UtestPonerDenominacionesAceptadasBilletes_Caso1()
         {
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
             #endregion
             #region Probar y Comprobar
-            atrObjTestAlcancia.ponerDenominacionesAceptadasBilletes(new List<int> { 1000, 2000});
+            Assert.AreEqual(true, atrObjTestAlcancia.ponerDenominacionesAceptadasBilletes(new List<int> { 1000, 2000}));
             Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
             Assert.AreEqual(2000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
+            #endregion
+        }
+        [TestMethod]
+        public void UtestPonerDenominacionesAceptadasBilletes_Caso2()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(false, atrObjTestAlcancia.ponerDenominacionesAceptadasBilletes(new List<int> { 1000, 2000 }));
+            Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
+            Assert.AreEqual(2000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
+            Assert.AreEqual(5000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[2]);
+            Assert.AreEqual(10000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[3]);
+            Assert.AreEqual(20000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[4]);
+            Assert.AreEqual(50000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[5]);
+            #endregion
+        }
+        [TestMethod]
+        public void UtestPonerDenominacionesAceptadasBilletes_Caso3()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.ponerDenominacionesAceptadasBilletes(new List<int> { 1000, 2000, 10000 }));
+            Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
+            Assert.AreEqual(2000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
+            Assert.AreEqual(10000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[2]);
             #endregion
         }
         #endregion

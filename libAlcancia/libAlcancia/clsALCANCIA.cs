@@ -97,13 +97,27 @@ namespace Alcancia
             if (prmValor > atrCapacidadBilletes)
                 atrCapacidadBilletes = prmValor;
         }
-        public void ponerDenominacionesAceptadasMonedas(List<int> prmLista)
+        public bool ponerDenominacionesAceptadasMonedas(List<int> prmLista)
         {
+            if(atrDenominacionesAceptadasMonedas != null)
+            {
+                for (int varIndice = 0; varIndice < atrDenominacionesAceptadasMonedas.Count; varIndice++)
+                    if (!prmLista.Contains(atrDenominacionesAceptadasMonedas[varIndice]) && atrConteoPorDenominacionMonedas[varIndice] != 0)
+                        return false;
+            }
             atrDenominacionesAceptadasMonedas = prmLista;
+            return true;
         }
-        public void ponerDenominacionesAceptadasBilletes(List<int> prmLista)
+        public bool ponerDenominacionesAceptadasBilletes(List<int> prmLista)
         {
+            if (atrDenominacionesAceptadasMonedas != null)
+            {
+                for (int varIndice = 0; varIndice < atrDenominacionesAceptadasBilletes.Count; varIndice++)
+                    if (!prmLista.Contains(atrDenominacionesAceptadasBilletes[varIndice]) && atrConteoPorDenominacionBilletes[varIndice] != 0)
+                        return false;
+            }
             atrDenominacionesAceptadasBilletes = prmLista;
+            return true;
         }
         #endregion
         #region Constructores
