@@ -270,10 +270,20 @@ namespace uTestAlcancia
             Assert.AreEqual(200, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[1]);
             Assert.AreEqual(500, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[2]);
             Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasMonedas()[3]);
+
+            Assert.AreEqual(300, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[0]);
+            Assert.AreEqual(400, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[1]);
+            Assert.AreEqual(500, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(3000, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[3]);
+
+            Assert.AreEqual(6, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[0]);
+            Assert.AreEqual(2, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[1]);
+            Assert.AreEqual(1, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(3, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[3]);
             #endregion
         }
         [TestMethod]
-        public void UtestPonerDenominacionesAceptadasBilletes_Caso1()
+        public void utestPonerDenominacionesAceptadasBilletes_Caso1()
         {
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
@@ -313,6 +323,14 @@ namespace uTestAlcancia
             Assert.AreEqual(1000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[0]);
             Assert.AreEqual(2000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[1]);
             Assert.AreEqual(10000, atrObjTestAlcancia.darDenominacionesAceptadasBilletes()[2]);
+
+            Assert.AreEqual(5000, atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[0]);
+            Assert.AreEqual(4000, atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[1]);
+            Assert.AreEqual(30000, atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[2]);
+
+            Assert.AreEqual(5, atrObjTestAlcancia.darConteoPorDenominacionBilletes()[0]);
+            Assert.AreEqual(2, atrObjTestAlcancia.darConteoPorDenominacionBilletes()[1]);
+            Assert.AreEqual(3, atrObjTestAlcancia.darConteoPorDenominacionBilletes()[2]);
             #endregion
         }
         #endregion

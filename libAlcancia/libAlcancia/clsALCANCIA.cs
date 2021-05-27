@@ -101,20 +101,66 @@ namespace Alcancia
         {
             if(atrDenominacionesAceptadasMonedas != null)
             {
+                #region Verificar No Eliminar con Saldos y Conteo Distinto de Cero
                 for (int varIndice = 0; varIndice < atrDenominacionesAceptadasMonedas.Count; varIndice++)
                     if (!prmLista.Contains(atrDenominacionesAceptadasMonedas[varIndice]) && atrConteoPorDenominacionMonedas[varIndice] != 0)
                         return false;
+                #endregion
+                #region Eliminar Saldos y Conteos (en Cero) para una Denominacion Descartada
+                for (int varIndice = 0; varIndice < atrDenominacionesAceptadasMonedas.Count; varIndice++)
+                {
+                    bool varDenominacionEncontrada = false;
+                    for(int varIndice2 = 0; varIndice2 <prmLista.Count; varIndice2++)
+                    {
+                        if(atrDenominacionesAceptadasMonedas[varIndice] == prmLista[varIndice2])
+                        {
+                            varDenominacionEncontrada = true;
+                            break;
+                        }
+                    }
+                    if(!varDenominacionEncontrada)
+                    {
+                        atrDenominacionesAceptadasMonedas.RemoveAt(varIndice);
+                        atrSaldoPorDenominacionMonedas.RemoveAt(varIndice);
+                        atrConteoPorDenominacionMonedas.RemoveAt(varIndice);
+                    }
+                }
+                return true;
+                #endregion
             }
             atrDenominacionesAceptadasMonedas = prmLista;
             return true;
         }
         public bool ponerDenominacionesAceptadasBilletes(List<int> prmLista)
         {
-            if (atrDenominacionesAceptadasMonedas != null)
+            if (atrDenominacionesAceptadasBilletes != null)
             {
+                #region Verificar No Eliminar con Saldos y Conteo Distinto de Cero
                 for (int varIndice = 0; varIndice < atrDenominacionesAceptadasBilletes.Count; varIndice++)
                     if (!prmLista.Contains(atrDenominacionesAceptadasBilletes[varIndice]) && atrConteoPorDenominacionBilletes[varIndice] != 0)
                         return false;
+                #endregion
+                #region Eliminar Saldos y Conteos (en Cero) para una Denominacion Descartada
+                for (int varIndice = 0; varIndice < atrDenominacionesAceptadasBilletes.Count; varIndice++)
+                {
+                    bool varDenominacionEncontrada = false;
+                    for (int varIndice2 = 0; varIndice2 < prmLista.Count; varIndice2++)
+                    {
+                        if (atrDenominacionesAceptadasBilletes[varIndice] == prmLista[varIndice2])
+                        {
+                            varDenominacionEncontrada = true;
+                            break;
+                        }
+                    }
+                    if (!varDenominacionEncontrada)
+                    {
+                        atrDenominacionesAceptadasBilletes.RemoveAt(varIndice);
+                        atrSaldoPorDenominacionBilletes.RemoveAt(varIndice);
+                        atrConteoPorDenominacionBilletes.RemoveAt(varIndice);
+                    }
+                }
+                return true;
+                #endregion
             }
             atrDenominacionesAceptadasBilletes = prmLista;
             return true;
