@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Alcancia.Dominio
 {
-    class clsBILLETE
+    class clsBILLETE : clsMONEDA
     {
         #region Atributos
         #region Propios
-        protected string atrSerie = "n.n";
+        protected string atrSerie = "ninguna...";
         protected int atrMes = -1;
         protected int atrDia = -1;
         #endregion
@@ -32,6 +32,20 @@ namespace Alcancia.Dominio
         }
         #endregion
         #region Constructores
+        public clsBILLETE(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia):base(prmNombre, prmDenominacion, prmAño)
+        {
+
+        }
+        public override void Generar()
+        {
+            atrSerie = "AD59757252";
+            atrNombre = "COP";
+            atrDenominacion = 5000;
+            atrMes = 8;
+            atrDia = 29;
+            atrAño = 2017;
+
+        }
         #endregion
         #endregion
     }

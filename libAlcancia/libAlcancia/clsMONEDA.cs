@@ -20,7 +20,7 @@ namespace Alcancia.Dominio
         #region Accesores
         public string darNombre()
         {
-            return null;
+            return atrNombre;
         }
         public int darDenominacion()
         {
@@ -34,9 +34,13 @@ namespace Alcancia.Dominio
         #region Constructores
         public clsMONEDA(string prmNombre, int prmDenominacion, int prmAño)
         {
-
         }
-        public void Generar() { }
+        public virtual void Generar()
+        {
+            atrNombre = "COP";
+            atrDenominacion = 1000;
+            atrAño = 2010;
+        }
         #endregion
         #endregion
     }
