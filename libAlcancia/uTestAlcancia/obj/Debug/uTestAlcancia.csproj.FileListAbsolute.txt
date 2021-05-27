@@ -1,9 +1,7 @@
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\uTestAlcancia.dll
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\uTestAlcancia.pdb
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\libAlcancia.dll
-C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\libAlcancia.pdb
-C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.csprojResolveAssemblyReference.cache
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.dll
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.pdb

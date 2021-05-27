@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Alcancia.Dominio
+﻿namespace Alcancia.Dominio
 {
-    class clsMONEDA
+    public class clsMONEDA
     {
         #region Atributos
         #region Propios
@@ -18,22 +12,17 @@ namespace Alcancia.Dominio
 
         #region Operaciones
         #region Accesores
-        public string darNombre()
-        {
-            return atrNombre;
-        }
-        public int darDenominacion()
-        {
-            return atrDenominacion;
-        }
-        public int darAño()
-        {
-            return atrAño;
-        }
+        public string darNombre() { return atrNombre; }
+        public int darDenominacion() { return atrDenominacion; }
+        public int darAño() { return atrAño; }
         #endregion
         #region Constructores
+        public clsMONEDA() { }
         public clsMONEDA(string prmNombre, int prmDenominacion, int prmAño)
         {
+            atrNombre = prmNombre;
+            atrDenominacion = prmDenominacion;
+            atrAño = prmAño;
         }
         public virtual void Generar()
         {

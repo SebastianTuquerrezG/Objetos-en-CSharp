@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alcancia.Dominio
 {
-    class clsBILLETE : clsMONEDA
+    public class clsBILLETE : clsMONEDA
     {
         #region Atributos
         #region Propios
@@ -18,23 +18,17 @@ namespace Alcancia.Dominio
 
         #region Operaciones
         #region Accesores
-        public string darSerie()
-        {
-            return atrSerie;
-        }
-        public int darMes()
-        {
-            return atrMes;
-        }
-        public int darDia()
-        {
-            return atrDia;
-        }
+        public string darSerie() { return atrSerie; }
+        public int darMes() { return atrMes; }
+        public int darDia() { return atrDia; }
         #endregion
         #region Constructores
+        public clsBILLETE() { }
         public clsBILLETE(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia):base(prmNombre, prmDenominacion, prmAño)
         {
-
+            atrSerie = prmSerie;
+            atrMes = prmMes;
+            atrDia = prmDia;
         }
         public override void Generar()
         {
