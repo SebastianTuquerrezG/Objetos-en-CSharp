@@ -18,8 +18,25 @@ namespace Alcancia.Dominio
 
         #region Operaciones
         #region Accesores
+        public string darNombre()
+        {
+            return null;
+        }
+        public int darDenominacion()
+        {
+            return atrDenominacion;
+        }
+        public int darAño()
+        {
+            return atrAño;
+        }
         #endregion
         #region Constructores
+        public clsMONEDA(string prmNombre, int prmDenominacion, int prmAño)
+        {
+
+        }
+        public void Generar() { }
         #endregion
         #endregion
     }
