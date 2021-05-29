@@ -193,7 +193,7 @@ namespace Alcancia.Dominio
         public void Generar()
         {
             atrNombre = "Marranito";
-            atrCapacidadMonedas = 50;
+            atrCapacidadMonedas = 13;
             atrDenominacionesAceptadasMonedas = new List<int>() { 50, 100, 200, 500, 1000 };
             atrSaldoPorDenominacionMonedas = new List<int>() { 300, 0, 400, 500, 3000 };
             atrConteoPorDenominacionMonedas = new List<int>() { 6, 0, 2, 1, 3 };
@@ -243,12 +243,16 @@ namespace Alcancia.Dominio
         }
         #endregion
         #region Asociadores
-        public bool Asociar(clsMONEDA prmObjeto)
+        public bool asociar(clsMONEDA prmObjeto)
         {
-            atrMonedas.Add(prmObjeto);
-            return true;
+            if (atrMonedas.Count < atrCapacidadMonedas)
+            {
+                atrMonedas.Add(prmObjeto);
+                return true;
+            }
+            return false;
         }
-        public bool Asociar(clsBILLETE prmObjeto)
+        public bool asociar(clsBILLETE prmObjeto)
         {
             atrBilletes.Add(prmObjeto);
             return true;
@@ -267,14 +271,13 @@ namespace Alcancia.Dominio
         #region Transacciones
         public bool consignar(clsMONEDA prmObjeto)
         {
-            if (atrDenominacionesAceptadasMonedas.Contains(prmObjeto.darDenominacion()))
+            if (atrDenominacionesAceptadasMonedas.Contains(prmObjeto.darDenominacion()) && asociar(prmObjeto))
             {
-                Asociar(prmObjeto);
-                atrSaldoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += prmObjeto.darDenominacion();
-                atrConteoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += 1;
-                atrSaldoTotalMonedas += prmObjeto.darDenominacion();
-                atrSaldoTotal += prmObjeto.darDenominacion();
-                return true;
+                    atrSaldoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += prmObjeto.darDenominacion();
+                    atrConteoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += 1;
+                    atrSaldoTotalMonedas += prmObjeto.darDenominacion();
+                    atrSaldoTotal += prmObjeto.darDenominacion();
+                    return true;
             }
             return false;
         }

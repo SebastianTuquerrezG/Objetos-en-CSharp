@@ -32,7 +32,7 @@ namespace uTestAlcancia
             atrObjTestAlcancia.Generar();
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(50, atrObjTestAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(13, atrObjTestAlcancia.darCapacidadMonedas());
             #endregion
         }
         [TestMethod]
@@ -201,7 +201,7 @@ namespace uTestAlcancia
             #endregion
         }
         #endregion
-        #region Test Mutadores
+        #region Test de Mutadores
         [TestMethod]
         public void uTestPonerNombre()
         {
@@ -408,7 +408,7 @@ namespace uTestAlcancia
         #endregion
         #region Test de Asociadores
         [TestMethod]
-        public void uTestAsociarMoneda()
+        public void uTestAsociarMonedaConCapacidadDisponible()
         {
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
@@ -416,8 +416,22 @@ namespace uTestAlcancia
             clsMONEDA varObjMoneda = new clsMONEDA("COP", 100, 1997);
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(varObjMoneda));
+            Assert.AreEqual(true, atrObjTestAlcancia.asociar(varObjMoneda));
             Assert.AreEqual(true, atrObjTestAlcancia.darMonedas().Contains(varObjMoneda));
+            #endregion
+        }
+        [TestMethod]
+        public void uTestAsociarMonedaConCapacidadLlena()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            atrObjTestAlcancia.asociar(new clsMONEDA("COP", 500, 1990));
+            clsMONEDA varObjMoneda = new clsMONEDA("COP", 100, 1997);
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(false, atrObjTestAlcancia.asociar(varObjMoneda));
+            Assert.AreEqual(false, atrObjTestAlcancia.darMonedas().Contains(varObjMoneda));
             #endregion
         }
         [TestMethod]
@@ -429,13 +443,34 @@ namespace uTestAlcancia
             clsBILLETE varObjBillete = new clsBILLETE("QWE676", "COP", 20000, 2005, 1, 3);
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(varObjBillete));
+            Assert.AreEqual(true, atrObjTestAlcancia.asociar(varObjBillete));
             Assert.AreEqual(true, atrObjTestAlcancia.darBilletes().Contains(varObjBillete));
             #endregion
         }
         #endregion
         #region Test de Disociadores
 
+        #endregion
+        #region Test de Transacciones
+        [TestMethod]
+        public void uTestConsignarMoneda()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            int varSaldoAnterior = atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[2];
+            int varConteoAnterior = atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2];
+            int varSaldoAnteriorTotalMonedas = atrObjTestAlcancia.darSaldoTotalMonedas();
+            int varSaldoAnteriorTotal = atrObjTestAlcancia.darSaldoTotal();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.consignar(new clsMONEDA("COP", 200, 1997)));
+            Assert.AreEqual(varSaldoAnterior + 200, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(varConteoAnterior + 1, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(varSaldoAnteriorTotalMonedas + 200, atrObjTestAlcancia.darSaldoTotalMonedas());
+            Assert.AreEqual(varSaldoAnteriorTotal + 200, atrObjTestAlcancia.darSaldoTotal());
+            #endregion
+        }
         #endregion
         #endregion
     }
