@@ -1,4 +1,6 @@
-﻿namespace Alcancia.Dominio
+﻿using System;
+
+namespace Alcancia.Dominio
 {
     public class clsMONEDA
     {
@@ -32,6 +34,18 @@
             atrNombre = "COP";
             atrDenominacion = 1000;
             atrAño = 2010;
+        }
+        #endregion
+        #region Asociadores
+        public bool Asociar(clsALCANCIA prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #region
+        public bool Disociar(ref clsALCANCIA prmObjeto)
+        {
+            throw new NotImplementedException();
         }
         #endregion
         #endregion

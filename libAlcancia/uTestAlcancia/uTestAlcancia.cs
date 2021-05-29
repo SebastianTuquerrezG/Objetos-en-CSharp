@@ -378,6 +378,33 @@ namespace uTestAlcancia
             #endregion
         }
         #endregion
+        #region Test de Asociadores
+        [TestMethod]
+        public void uTestAsociarMoneda()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(new clsMONEDA("COP", 100, 1997)));
+            #endregion
+        }
+        [TestMethod]
+        public void uTestAsociarBillete()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(new clsBILLETE("QWE676", "COP", 20000, 2005, 1, 3)));
+            #endregion
+        }
+        #endregion
+        #region Test de Disociadores
+
+        #endregion
         #endregion
     }
 }

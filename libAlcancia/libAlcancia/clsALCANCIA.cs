@@ -188,14 +188,70 @@ namespace Alcancia.Dominio
             atrSaldoPorDenominacionMonedas = new List<int>() { 300, 0, 400, 500, 3000 };
             atrConteoPorDenominacionMonedas = new List<int>() { 6, 0, 2, 1, 3 };
             atrSaldoTotalMonedas = 4200;
-            
+
+            #region Monedas
+            atrMonedas = new List<clsMONEDA>();
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1990));
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1991));
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1990));
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1994));
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1990));
+            atrMonedas.Add(new clsMONEDA("COP", 50, 1990));
+
+            atrMonedas.Add(new clsMONEDA("COP", 200, 1993));
+            atrMonedas.Add(new clsMONEDA("COP", 200, 1999));
+
+            atrMonedas.Add(new clsMONEDA("COP", 500, 1993));
+
+            atrMonedas.Add(new clsMONEDA("COP", 1000, 2010));
+            atrMonedas.Add(new clsMONEDA("COP", 1000, 2011));
+            atrMonedas.Add(new clsMONEDA("COP", 1000, 2010));
+            #endregion
+
             atrCapacidadBilletes = 20;
             atrDenominacionesAceptadasBilletes = new List<int>() { 1000, 2000, 5000, 10000, 20000, 50000 };
             atrSaldoPorDenominacionBilletes = new List<int>() { 5000, 4000, 0, 30000, 0, 0 };
             atrConteoPorDenominacionBilletes = new List<int>() { 5, 2, 0, 3, 0, 0 };
             atrSaldoTotalBilletes = 39000;
 
+            #region Billetes
+            atrBilletes = new List<clsBILLETE>();
+            atrBilletes.Add(new clsBILLETE("ABC123", "COP", 50, 1990, 1, 1));
+            atrBilletes.Add(new clsBILLETE("DEF129", "COP", 50, 1991, 1, 1));
+            atrBilletes.Add(new clsBILLETE("GHI173", "COP", 50, 1990, 1, 1));
+            atrBilletes.Add(new clsBILLETE("JKL143", "COP", 50, 1994, 1, 1));
+            atrBilletes.Add(new clsBILLETE("QWE133", "COP", 50, 1990, 1, 1));
+        
+            atrBilletes.Add(new clsBILLETE("BBC153", "COP", 200, 1993, 1, 1));
+            atrBilletes.Add(new clsBILLETE("CBC129", "COP", 200, 1999, 1, 1));
+
+            atrBilletes.Add(new clsBILLETE("QBC323", "COP", 1000, 2010, 1, 1));
+            atrBilletes.Add(new clsBILLETE("RBC623", "COP", 1000, 2011, 1, 1));
+            atrBilletes.Add(new clsBILLETE("TBC723", "COP", 1000, 2010, 1, 1));
+            #endregion
             atrSaldoTotal = 43200;
+        }
+        #endregion
+        #region Asociadores
+        public bool Asociar(clsMONEDA prmObjeto)
+        {
+            atrMonedas.Add(prmObjeto);
+            return true;
+        }
+        public bool Asociar(clsBILLETE prmObjeto)
+        {
+            atrBilletes.Add(prmObjeto);
+            return true;
+        }
+        #endregion
+        #region
+        public bool Disociar(int prmDenominacion, ref clsMONEDA prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        public bool Disociar(int prmDenominacion, ref clsBILLETE prmObjeto)
+        {
+            throw new NotImplementedException();
         }
         #endregion
         #endregion
