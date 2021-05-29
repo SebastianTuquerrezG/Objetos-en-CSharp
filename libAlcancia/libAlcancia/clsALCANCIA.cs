@@ -259,13 +259,33 @@ namespace Alcancia.Dominio
         }
         #endregion
         #region Disociadores
-        public bool Disociar(int prmDenominacion, ref clsMONEDA prmObjeto)
+        public bool disociar(int prmDenominacion, ref clsMONEDA prmObjeto)
         {
-            throw new NotImplementedException();
+            foreach(clsMONEDA varObjMoneda in atrMonedas)
+            {
+                if(prmDenominacion == varObjMoneda.darDenominacion())
+                {
+                    prmObjeto = varObjMoneda;
+                    atrMonedas.Remove(varObjMoneda);
+                    return true;
+                }
+
+            }
+            return false;
         }
-        public bool Disociar(int prmDenominacion, ref clsBILLETE prmObjeto)
+        public bool disociar(int prmDenominacion, ref clsBILLETE prmObjeto)
         {
-            throw new NotImplementedException();
+            foreach (clsBILLETE varObjBillete in atrBilletes)
+            {
+                if (prmDenominacion == varObjBillete.darDenominacion())
+                {
+                    prmObjeto = varObjBillete;
+                    atrBilletes.Remove(varObjBillete);
+                    return true;
+                }
+
+            }
+            return false;
         }
         #endregion
         #region Transacciones
@@ -278,6 +298,18 @@ namespace Alcancia.Dominio
                     atrSaldoTotalMonedas += prmObjeto.darDenominacion();
                     atrSaldoTotal += prmObjeto.darDenominacion();
                     return true;
+            }
+            return false;
+        }
+        public bool retirar(int prmDenominacion, ref clsMONEDA prmObjeto)
+        {
+            if (atrDenominacionesAceptadasMonedas.Contains(prmDenominacion) && disociar(prmDenominacion, ref prmObjeto))
+            {
+                atrSaldoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmDenominacion)] -= prmDenominacion;
+                atrConteoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmDenominacion)] -= 1;
+                atrSaldoTotalMonedas -= prmDenominacion;
+                atrSaldoTotal -= prmDenominacion;
+                return true;
             }
             return false;
         }

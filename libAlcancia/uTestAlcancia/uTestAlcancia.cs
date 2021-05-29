@@ -9,6 +9,7 @@ namespace uTestAlcancia
     {
         #region Atributos
         clsALCANCIA atrObjTestAlcancia;
+        clsMONEDA atrTestObjMoneda;
         #endregion
 
         #region Metodos de Prueba
@@ -469,6 +470,27 @@ namespace uTestAlcancia
             Assert.AreEqual(varConteoAnterior + 1, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2]);
             Assert.AreEqual(varSaldoAnteriorTotalMonedas + 200, atrObjTestAlcancia.darSaldoTotalMonedas());
             Assert.AreEqual(varSaldoAnteriorTotal + 200, atrObjTestAlcancia.darSaldoTotal());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestRetirarMoneda()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            int varSaldoAnteriorPorDenominacion = atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[2];
+            int varConteoAnteriorPorDenominacion = atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2];
+            int varSaldoAnteriorTotalMonedas = atrObjTestAlcancia.darSaldoTotalMonedas();
+            int varSaldoAnteriorTotal = atrObjTestAlcancia.darSaldoTotal();
+            atrTestObjMoneda = new clsMONEDA();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.retirar(200, ref atrTestObjMoneda));
+            Assert.AreEqual(200, atrTestObjMoneda.darDenominacion());
+            Assert.AreEqual(varSaldoAnteriorPorDenominacion - 200, atrObjTestAlcancia.darSaldoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(varConteoAnteriorPorDenominacion - 1, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2]);
+            Assert.AreEqual(varSaldoAnteriorTotalMonedas - 200, atrObjTestAlcancia.darSaldoTotalMonedas());
+            Assert.AreEqual(varSaldoAnteriorTotal - 200, atrObjTestAlcancia.darSaldoTotal());
             #endregion
         }
         #endregion
