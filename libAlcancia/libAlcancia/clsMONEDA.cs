@@ -8,6 +8,9 @@
         protected int atrDenominacion = -1;
         protected int atrAño = -1;
         #endregion
+        #region Atributos Asociativos
+        private clsALCANCIA atrAlcancia = null;
+        #endregion
         #endregion
 
         #region Operaciones

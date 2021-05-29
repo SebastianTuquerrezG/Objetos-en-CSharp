@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System;
-// File:    clsALCANCIA.cs
+﻿// File:    clsALCANCIA.cs
 // Author:  JOAN SEBASTIAN TUQUERREZ GOMEZ
 // Created: martes, 25 de mayo de 2021 4:57:43 p. m.
 // Purpose: Definition of Class clsALCANCIA
+using System.Collections.Generic;
+using System;
 namespace Alcancia.Dominio
 {
     public class clsALCANCIA
@@ -24,6 +24,10 @@ namespace Alcancia.Dominio
         private List<int> atrConteoPorDenominacionBilletes = null;
         private int atrSaldoTotalBilletes = 0;
         private int atrSaldoTotal = 0;
+        #endregion
+        #region Atributos Asociativos
+        private List<clsMONEDA> atrMonedas = null;
+        private List<clsBILLETE> atrBilletes = null;
         #endregion
         #endregion
 
