@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Alcancia.Dominio
 {
@@ -20,6 +21,9 @@ namespace Alcancia.Dominio
         public string darNombre() { return atrNombre; }
         public int darDenominacion() { return atrDenominacion; }
         public int darAño() { return atrAño; }
+        #region Asociativos
+        public clsALCANCIA darAlcancia() { return atrAlcancia; }
+        #endregion
         #endregion
         #region Constructores
         public clsMONEDA() { }
@@ -34,12 +38,14 @@ namespace Alcancia.Dominio
             atrNombre = "COP";
             atrDenominacion = 1000;
             atrAño = 2010;
+
+            atrAlcancia = new clsALCANCIA("Mi Platica", 50, 100, new List<int>(), new List<int>());
         }
         #endregion
         #region Asociadores
         public bool Asociar(clsALCANCIA prmObjeto)
         {
-            if(atrAlcancia != null)
+            if(atrAlcancia == null)
             {
                 atrAlcancia = prmObjeto;
                 return true;
@@ -47,7 +53,7 @@ namespace Alcancia.Dominio
             return false;
         }
         #endregion
-        #region
+        #region Disocicadores
         public bool Disociar(ref clsALCANCIA prmObjeto)
         {
             if(atrAlcancia != null)
