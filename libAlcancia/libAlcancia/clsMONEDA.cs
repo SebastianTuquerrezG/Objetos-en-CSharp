@@ -39,13 +39,24 @@ namespace Alcancia.Dominio
         #region Asociadores
         public bool Asociar(clsALCANCIA prmObjeto)
         {
-            throw new NotImplementedException();
+            if(atrAlcancia != null)
+            {
+                atrAlcancia = prmObjeto;
+                return true;
+            }
+            return false;
         }
         #endregion
         #region
         public bool Disociar(ref clsALCANCIA prmObjeto)
         {
-            throw new NotImplementedException();
+            if(atrAlcancia != null)
+            {
+                prmObjeto = atrAlcancia;
+                atrAlcancia = null;
+                return true;
+            }
+            return false;
         }
         #endregion
         #endregion

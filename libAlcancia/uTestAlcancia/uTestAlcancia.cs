@@ -172,6 +172,34 @@ namespace uTestAlcancia
             Assert.AreEqual(43200, atrObjTestAlcancia.darSaldoTotal());
             #endregion
         }
+        [TestMethod]
+        public void uTestDarMonedas()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(50, atrObjTestAlcancia.darMonedas()[0].darDenominacion());
+            Assert.AreEqual(200, atrObjTestAlcancia.darMonedas()[6].darDenominacion());
+            Assert.AreEqual(500, atrObjTestAlcancia.darMonedas()[8].darDenominacion());
+            Assert.AreEqual(1000, atrObjTestAlcancia.darMonedas()[11].darDenominacion());   
+            #endregion
+        }
+        [TestMethod]
+        public void uTestDarBilletes()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(1000, atrObjTestAlcancia.darBilletes()[0].darDenominacion());
+            Assert.AreEqual(2000, atrObjTestAlcancia.darBilletes()[6].darDenominacion());
+            Assert.AreEqual(10000, atrObjTestAlcancia.darBilletes()[8].darDenominacion());
+            Assert.AreEqual(10000, atrObjTestAlcancia.darBilletes()[9].darDenominacion());
+            #endregion
+        }
         #endregion
         #region Test Mutadores
         [TestMethod]
@@ -385,9 +413,11 @@ namespace uTestAlcancia
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
             atrObjTestAlcancia.Generar();
+            clsMONEDA varObjMoneda = new clsMONEDA("COP", 100, 1997);
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(new clsMONEDA("COP", 100, 1997)));
+            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(varObjMoneda));
+            Assert.AreEqual(true, atrObjTestAlcancia.darMonedas().Contains(varObjMoneda));
             #endregion
         }
         [TestMethod]
@@ -396,9 +426,11 @@ namespace uTestAlcancia
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
             atrObjTestAlcancia.Generar();
+            clsBILLETE varObjBillete = new clsBILLETE("QWE676", "COP", 20000, 2005, 1, 3);
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(new clsBILLETE("QWE676", "COP", 20000, 2005, 1, 3)));
+            Assert.AreEqual(true, atrObjTestAlcancia.Asociar(varObjBillete));
+            Assert.AreEqual(true, atrObjTestAlcancia.darBilletes().Contains(varObjBillete));
             #endregion
         }
         #endregion

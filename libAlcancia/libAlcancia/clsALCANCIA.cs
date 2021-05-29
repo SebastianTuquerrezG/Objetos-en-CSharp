@@ -85,6 +85,16 @@ namespace Alcancia.Dominio
             return atrSaldoTotal;
         }
         #endregion
+        #region Accesores Atributos Asociativos
+        public List<clsMONEDA> darMonedas()
+        {
+            return atrMonedas;
+        }
+        public List<clsBILLETE> darBilletes()
+        {
+            return atrBilletes;
+        }
+        #endregion
         #endregion
         #region Mutadores
         public void ponerNombre(string prmValor)
@@ -216,18 +226,18 @@ namespace Alcancia.Dominio
 
             #region Billetes
             atrBilletes = new List<clsBILLETE>();
-            atrBilletes.Add(new clsBILLETE("ABC123", "COP", 50, 1990, 1, 1));
-            atrBilletes.Add(new clsBILLETE("DEF129", "COP", 50, 1991, 1, 1));
-            atrBilletes.Add(new clsBILLETE("GHI173", "COP", 50, 1990, 1, 1));
-            atrBilletes.Add(new clsBILLETE("JKL143", "COP", 50, 1994, 1, 1));
-            atrBilletes.Add(new clsBILLETE("QWE133", "COP", 50, 1990, 1, 1));
+            atrBilletes.Add(new clsBILLETE("ABC123", "COP", 1000, 1990, 1, 1));
+            atrBilletes.Add(new clsBILLETE("DEF129", "COP", 1000, 1991, 1, 1));
+            atrBilletes.Add(new clsBILLETE("GHI173", "COP", 1000, 1990, 1, 1));
+            atrBilletes.Add(new clsBILLETE("JKL143", "COP", 1000, 1994, 1, 1));
+            atrBilletes.Add(new clsBILLETE("QWE133", "COP", 1000, 1990, 1, 1));
         
-            atrBilletes.Add(new clsBILLETE("BBC153", "COP", 200, 1993, 1, 1));
-            atrBilletes.Add(new clsBILLETE("CBC129", "COP", 200, 1999, 1, 1));
+            atrBilletes.Add(new clsBILLETE("BBC153", "COP", 2000, 1993, 1, 1));
+            atrBilletes.Add(new clsBILLETE("CBC129", "COP", 2000, 1999, 1, 1));
 
-            atrBilletes.Add(new clsBILLETE("QBC323", "COP", 1000, 2010, 1, 1));
-            atrBilletes.Add(new clsBILLETE("RBC623", "COP", 1000, 2011, 1, 1));
-            atrBilletes.Add(new clsBILLETE("TBC723", "COP", 1000, 2010, 1, 1));
+            atrBilletes.Add(new clsBILLETE("QBC323", "COP", 10000, 2010, 1, 1));
+            atrBilletes.Add(new clsBILLETE("RBC623", "COP", 10000, 2011, 1, 1));
+            atrBilletes.Add(new clsBILLETE("TBC723", "COP", 10000, 2010, 1, 1));
             #endregion
             atrSaldoTotal = 43200;
         }
@@ -244,7 +254,7 @@ namespace Alcancia.Dominio
             return true;
         }
         #endregion
-        #region
+        #region Disociadores
         public bool Disociar(int prmDenominacion, ref clsMONEDA prmObjeto)
         {
             throw new NotImplementedException();
