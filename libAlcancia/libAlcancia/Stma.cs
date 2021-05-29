@@ -30,7 +30,8 @@ namespace Alcancia.Dominio
         }
         public static bool retirar(string prmNombre, int prmDenominacion, int prmAño)
         {
-
+            atrMonedas.Add(new clsMONEDA(prmNombre, prmDenominacion, prmAño));
+            return true;
         }
         public static bool retirar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
