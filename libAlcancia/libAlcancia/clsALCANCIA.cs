@@ -264,6 +264,21 @@ namespace Alcancia.Dominio
             throw new NotImplementedException();
         }
         #endregion
+        #region Transacciones
+        public bool consignar(clsMONEDA prmObjeto)
+        {
+            if (atrDenominacionesAceptadasMonedas.Contains(prmObjeto.darDenominacion()))
+            {
+                Asociar(prmObjeto);
+                atrSaldoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += prmObjeto.darDenominacion();
+                atrConteoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmObjeto.darDenominacion())] += 1;
+                atrSaldoTotalMonedas += prmObjeto.darDenominacion();
+                atrSaldoTotal += prmObjeto.darDenominacion();
+                return true;
+            }
+            return false;
+        }
+        #endregion
         #endregion
     }
 }
