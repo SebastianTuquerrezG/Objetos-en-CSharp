@@ -10,6 +10,7 @@ namespace uTestAlcancia
         #region Atributos
         clsALCANCIA atrObjTestAlcancia;
         clsMONEDA atrTestObjMoneda;
+        clsBILLETE atrTestObjBillete;
         #endregion
 
         #region Metodos de Prueba
@@ -450,7 +451,37 @@ namespace uTestAlcancia
         }
         #endregion
         #region Test de Disociadores
-
+        [TestMethod]
+        public void uTestDisociarMoneda()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            atrTestObjMoneda = new clsMONEDA();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.disociar(500, ref atrTestObjMoneda));
+            Assert.AreEqual(500, atrTestObjMoneda.darDenominacion());
+            Assert.AreEqual("COP", atrTestObjMoneda.darNombre());
+            Assert.AreEqual(1993, atrTestObjMoneda.darAño());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestDisociarBillete()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            atrTestObjBillete = new clsBILLETE();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.disociar(2000, ref atrTestObjBillete));
+            Assert.AreEqual(2000, atrTestObjBillete.darDenominacion());
+            Assert.AreEqual("COP", atrTestObjBillete.darNombre());
+            Assert.AreEqual(2002, atrTestObjBillete.darAño());
+            Assert.AreEqual("BBC153", atrTestObjBillete.darSerie());
+            #endregion
+        }
         #endregion
         #region Test de Transacciones
         [TestMethod]
