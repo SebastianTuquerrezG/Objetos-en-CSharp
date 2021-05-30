@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Alcancia.Dominio;
 
@@ -101,7 +102,7 @@ namespace uTestAlcancia
             atrObjTestAlcancia.Generar();
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(20, atrObjTestAlcancia.darCapacidadBilletes());
+            Assert.AreEqual(11, atrObjTestAlcancia.darCapacidadBilletes());
             #endregion
         }
         [TestMethod]
@@ -437,7 +438,7 @@ namespace uTestAlcancia
             #endregion
         }
         [TestMethod]
-        public void uTestAsociarBillete()
+        public void uTestAsociarBilleteConCapacidadDisponible()
         {
             #region Configurar
             atrObjTestAlcancia = new clsALCANCIA();
@@ -447,6 +448,20 @@ namespace uTestAlcancia
             #region Probar y Comprobar
             Assert.AreEqual(true, atrObjTestAlcancia.asociar(varObjBillete));
             Assert.AreEqual(true, atrObjTestAlcancia.darBilletes().Contains(varObjBillete));
+            #endregion
+        }
+        [TestMethod]
+        public void uTestAsociarBilleteConCapacidadLlena()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            atrObjTestAlcancia.asociar(new clsBILLETE("QDR567", "COP", 10000, 2003, 1, 1));
+            clsBILLETE varObjBillete = new clsBILLETE("QWE676", "COP", 20000, 2005, 1, 3);
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(false, atrObjTestAlcancia.asociar(varObjBillete));
+            Assert.AreEqual(false, atrObjTestAlcancia.darBilletes().Contains(varObjBillete));
             #endregion
         }
         #endregion
@@ -478,7 +493,7 @@ namespace uTestAlcancia
             Assert.AreEqual(true, atrObjTestAlcancia.disociar(2000, ref atrTestObjBillete));
             Assert.AreEqual(2000, atrTestObjBillete.darDenominacion());
             Assert.AreEqual("COP", atrTestObjBillete.darNombre());
-            Assert.AreEqual(2002, atrTestObjBillete.darAño());
+            Assert.AreEqual(1993, atrTestObjBillete.darAño());
             Assert.AreEqual("BBC153", atrTestObjBillete.darSerie());
             #endregion
         }
@@ -522,6 +537,45 @@ namespace uTestAlcancia
             Assert.AreEqual(varConteoAnteriorPorDenominacion - 1, atrObjTestAlcancia.darConteoPorDenominacionMonedas()[2]);
             Assert.AreEqual(varSaldoAnteriorTotalMonedas - 200, atrObjTestAlcancia.darSaldoTotalMonedas());
             Assert.AreEqual(varSaldoAnteriorTotal - 200, atrObjTestAlcancia.darSaldoTotal());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestConsignarBillete()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            int varSaldoAnterior = atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[2];
+            int varConteoAnterior = atrObjTestAlcancia.darConteoPorDenominacionBilletes()[2];
+            int varSaldoAnteriorTotalBilletes = atrObjTestAlcancia.darSaldoTotalBilletes();
+            int varSaldoAnteriorTotal = atrObjTestAlcancia.darSaldoTotal();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.consignar(new clsBILLETE("CBC129", "COP", 5000, 2003, 1, 1)));
+            Assert.AreEqual(varSaldoAnterior + 5000, atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[2]);
+            Assert.AreEqual(varConteoAnterior + 1, atrObjTestAlcancia.darConteoPorDenominacionBilletes()[2]);
+            Assert.AreEqual(varSaldoAnteriorTotalBilletes + 5000, atrObjTestAlcancia.darSaldoTotalBilletes());
+            Assert.AreEqual(varSaldoAnteriorTotal + 5000, atrObjTestAlcancia.darSaldoTotal());
+            #endregion
+        }
+        [TestMethod]
+        public void uTestRetirarBillete()
+        {
+            #region Configurar
+            atrObjTestAlcancia = new clsALCANCIA();
+            atrObjTestAlcancia.Generar();
+            int varSaldoAteriorPorDenominacion = atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[2];
+            int varConteoAnteriorPorDenominacion = atrObjTestAlcancia.darConteoPorDenominacionBilletes()[2];
+            int varSaldoAnteriorTotalBilletes = atrObjTestAlcancia.darSaldoTotalBilletes();
+            int varSaldoAnteriorTotal = atrObjTestAlcancia.darSaldoTotal();
+            atrTestObjBillete = new clsBILLETE();
+            #endregion
+            #region Probar y Comprobar
+            Assert.AreEqual(true, atrObjTestAlcancia.retirar(5000, ref atrTestObjBillete));
+            Assert.AreEqual(varSaldoAteriorPorDenominacion - 5000, atrObjTestAlcancia.darSaldoPorDenominacionBilletes()[2]);
+            Assert.AreEqual(varConteoAnteriorPorDenominacion - 1, atrObjTestAlcancia.darConteoPorDenominacionBilletes()[2]);
+            Assert.AreEqual(varSaldoAnteriorTotalBilletes - 5000, atrObjTestAlcancia.darSaldoTotalBilletes());
+            Assert.AreEqual(varSaldoAnteriorTotal - 5000, atrObjTestAlcancia.darSaldoTotal());
             #endregion
         }
         #endregion

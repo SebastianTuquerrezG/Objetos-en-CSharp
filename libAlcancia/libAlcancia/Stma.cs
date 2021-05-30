@@ -70,6 +70,24 @@ namespace Alcancia.Dominio
             throw new NotImplementedException();
         }
         #endregion
+        #region Transsaccion
+        public static bool consignar(clsMONEDA prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        public static bool consignar(clsBILLETE prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        public static bool retirar(int prmDenominacion, clsMONEDA prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        public static bool retirar(int prmDenominacion, clsBILLETE prmObjeto)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
         #endregion
         #endregion
     }

@@ -218,7 +218,7 @@ namespace Alcancia.Dominio
             atrMonedas.Add(new clsMONEDA("COP", 1000, 2010));
             #endregion
 
-            atrCapacidadBilletes = 20;
+            atrCapacidadBilletes = 11;
             atrDenominacionesAceptadasBilletes = new List<int>() { 1000, 2000, 5000, 10000, 20000, 50000 };
             atrSaldoPorDenominacionBilletes = new List<int>() { 5000, 4000, 0, 30000, 0, 0 };
             atrConteoPorDenominacionBilletes = new List<int>() { 5, 2, 0, 3, 0, 0 };
@@ -254,8 +254,12 @@ namespace Alcancia.Dominio
         }
         public bool asociar(clsBILLETE prmObjeto)
         {
-            atrBilletes.Add(prmObjeto);
-            return true;
+            if (atrBilletes.Count < atrCapacidadMonedas)
+            {
+                atrBilletes.Add(prmObjeto);
+                return true;
+            }
+            return false;
         }
         #endregion
         #region Disociadores
@@ -309,6 +313,30 @@ namespace Alcancia.Dominio
                 atrConteoPorDenominacionMonedas[atrDenominacionesAceptadasMonedas.IndexOf(prmDenominacion)] -= 1;
                 atrSaldoTotalMonedas -= prmDenominacion;
                 atrSaldoTotal -= prmDenominacion;
+                return true;
+            }
+            return false;
+        }
+        public bool consignar(clsBILLETE prmObjeto)
+        {
+            if (atrBilletes.Count < atrCapacidadBilletes && asociar(prmObjeto))
+            {
+                atrSaldoPorDenominacionBilletes[atrDenominacionesAceptadasBilletes.IndexOf(prmObjeto.darDenominacion())] += prmObjeto.darDenominacion();
+                atrConteoPorDenominacionBilletes[atrDenominacionesAceptadasBilletes.IndexOf(prmObjeto.darDenominacion())] += 1;
+                atrSaldoTotalBilletes += prmObjeto.darDenominacion();
+                atrSaldoTotal += prmObjeto.darDenominacion();
+                return true;
+            }
+            return false;
+        }
+        public bool retirar(int prmDenominacion, ref clsBILLETE prmObjeto)
+        {
+            if (atrDenominacionesAceptadasBilletes.Contains(prmDenominacion) && disociar(prmDenominacion, ref prmObjeto))
+            {
+                atrSaldoPorDenominacionBilletes[atrDenominacionesAceptadasBilletes.IndexOf(prmObjeto.darDenominacion())] -= prmObjeto.darDenominacion();
+                atrConteoPorDenominacionBilletes[atrDenominacionesAceptadasBilletes.IndexOf(prmObjeto.darDenominacion())] -= 1;
+                atrSaldoTotalBilletes -= prmObjeto.darDenominacion();
+                atrSaldoTotal -= prmObjeto.darDenominacion();
                 return true;
             }
             return false;
