@@ -35,35 +35,39 @@ namespace Alcancia.Dominio
         }
         public static bool retirar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
-
+            foreach (clsBILLETE varObjeto in atrBilletes)
+                if (varObjeto.darSerie() == prmSerie)
+                    return false;
+            atrBilletes.Add(new clsBILLETE(prmSerie, prmNombre, prmDenominacion, prmAño, prmMes, prmDia));
+            return true;
         }
         #endregion
         #region Actualizadores
         public static bool actualizar(string prmNombre, int prmCapacidadMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasMonedas, List<int> prmDenominacionesAceptadasBilletes)
         {
-
+            throw new NotImplementedException();
         }
         public static bool actualizar(string prmNombre, int prmDenominacion, int prmAño)
         {
-
+            throw new NotImplementedException();
         }
         public static bool actualizar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
-
+            throw new NotImplementedException();
         }
         #endregion
         #region Eliminar
         public static bool eliminar()
         {
-
+            throw new NotImplementedException();
         }
         public static bool eliminar(int prmDenominacion)
         {
-
+            throw new NotImplementedException();
         }
         public static bool eliminar(string prmSerie)
         {
-
+            throw new NotImplementedException();
         }
         #endregion
         #endregion
