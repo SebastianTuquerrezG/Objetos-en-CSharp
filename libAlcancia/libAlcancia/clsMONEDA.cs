@@ -25,6 +25,20 @@ namespace Alcancia.Dominio
         public clsALCANCIA darAlcancia() { return atrAlcancia; }
         #endregion
         #endregion
+        #region mutadores 
+        public void ponerNombre(string prmValor)
+        {
+            atrNombre = prmValor;
+        }
+        public void ponerDenominacion(int prmValor)
+        {
+            atrDenominacion = prmValor;
+        }
+        public void ponerAño(int prmValor)
+        {
+            atrAño = prmValor;
+        }
+        #endregion
         #region Constructores
         public clsMONEDA() { }
         public clsMONEDA(string prmNombre, int prmDenominacion, int prmAño)

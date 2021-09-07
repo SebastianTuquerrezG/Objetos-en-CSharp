@@ -5,3 +5,10 @@ C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\lib
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.csprojResolveAssemblyReference.cache
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.dll
 C:\Users\Personal\Desktop\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.pdb
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\uTestAlcancia.dll
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\uTestAlcancia.pdb
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\libAlcancia.dll
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\bin\Debug\libAlcancia.pdb
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.csprojResolveAssemblyReference.cache
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.dll
+C:\Users\Personal\Desktop\Platzi Programacion\Objetos CSharp\libAlcancia\uTestAlcancia\obj\Debug\uTestAlcancia.pdb

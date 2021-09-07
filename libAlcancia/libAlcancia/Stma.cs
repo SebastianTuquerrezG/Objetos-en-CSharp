@@ -19,7 +19,7 @@ namespace Alcancia.Dominio
         #region Operaciones
         #region Cruds
         #region Registradores
-        public static bool retirar(string prmNombre, int prmCapacidadMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasMonedas, List<int> prmDenominacionesAceptadasBilletes)
+        public static bool registrar(string prmNombre, int prmCapacidadMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasMonedas, List<int> prmDenominacionesAceptadasBilletes)
         {
             if(atrAlcancia == null)
             {
@@ -28,12 +28,12 @@ namespace Alcancia.Dominio
             }
             return false;
         }
-        public static bool retirar(string prmNombre, int prmDenominacion, int prmAño)
+        public static bool registrar(string prmNombre, int prmDenominacion, int prmAño)
         {
             atrMonedas.Add(new clsMONEDA(prmNombre, prmDenominacion, prmAño));
             return true;
         }
-        public static bool retirar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
+        public static bool registrar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
             foreach (clsBILLETE varObjeto in atrBilletes)
                 if (varObjeto.darSerie() == prmSerie)
@@ -45,15 +45,53 @@ namespace Alcancia.Dominio
         #region Actualizadores
         public static bool actualizar(string prmNombre, int prmCapacidadMonedas, int prmCapacidadBilletes, List<int> prmDenominacionesAceptadasMonedas, List<int> prmDenominacionesAceptadasBilletes)
         {
-            throw new NotImplementedException();
+            if (atrAlcancia != null)
+            {
+                atrAlcancia.ponerNombre(prmNombre);
+                atrAlcancia.ponerCapacidadMonedas(prmCapacidadMonedas);
+                atrAlcancia.ponerCapacidadBilletes(prmCapacidadBilletes);
+                atrAlcancia.ponerDenominacionesAceptadasMonedas(prmDenominacionesAceptadasMonedas);
+                atrAlcancia.ponerDenominacionesAceptadasBilletes(prmDenominacionesAceptadasBilletes);
+                return true;
+            }
+            return false;
         }
         public static bool actualizar(string prmNombre, int prmDenominacion, int prmAño)
         {
-            throw new NotImplementedException();
+            foreach(clsMONEDA varObjeto in atrMonedas)
+            {
+                if (prmDenominacion == varObjeto.darDenominacion())
+                {
+                    if (varObjeto.darAlcancia() == null)
+                    {
+                        varObjeto.ponerNombre(prmNombre);
+                        varObjeto.ponerDenominacion(prmDenominacion);
+                    }
+                    varObjeto.ponerAño(prmAño);
+                    return true;
+                }
+            }
+            return false;
         }
         public static bool actualizar(string prmSerie, string prmNombre, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
-            throw new NotImplementedException();
+            foreach (clsBILLETE varObjeto in atrBilletes)
+            {
+                if (prmSerie == varObjeto.darSerie())
+                {
+                    if (varObjeto.darAlcancia() == null)
+                    {
+                        varObjeto.ponerNombre(prmNombre);
+                        varObjeto.ponerDenominacion(prmDenominacion);
+                    }
+                    varObjeto.ponerAño(prmAño);
+                    varObjeto.ponerMes(prmMes);
+                    varObjeto.ponerDia(prmDia);
+                    varObjeto.ponerSerie(prmSerie);
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
         #region Eliminar
@@ -63,7 +101,15 @@ namespace Alcancia.Dominio
         }
         public static bool eliminar(int prmDenominacion)
         {
-            throw new NotImplementedException();
+            foreach(clsMONEDA varObjeto in atrMonedas)
+            {
+                if(varObjeto.darAlcancia() == null && varObjeto.darDenominacion() == prmDenominacion)
+                {
+                    atrMonedas.Remove(varObjeto);
+                    return true;
+                }
+            }
+            return false;
         }
         public static bool eliminar(string prmSerie)
         {

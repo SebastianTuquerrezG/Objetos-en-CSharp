@@ -17,6 +17,20 @@ namespace Alcancia.Dominio
         #endregion
 
         #region Operaciones
+        #region Mutadores
+        public void ponerMes(int prmValor)
+        {
+            atrMes = prmValor;
+        }
+        public void ponerDia(int prmValor)
+        {
+            atrDia = prmValor;
+        }
+        public void ponerSerie(string prmValor)
+        {
+            atrSerie = prmValor;
+        }
+        #endregion
         #region Accesores
         public string darSerie() { return atrSerie; }
         public int darMes() { return atrMes; }
